@@ -551,6 +551,88 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legacy Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation_and_setup_legacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Old Setup Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -859,12 +941,54 @@
     *   <code>NetworkManager Applet</code>
 5.  You can select the added item in the <code>Items</code> list and use the Up/Down arrows to change its position on the panel.
 6.  Close the Panel Preferences window. You should now see the network icon on your panel, allowing you to manage Wi-Fi, wired connections, etc.</p>
+<p><strong>Troubleshooting NetworkManager Applet not appearing:</strong></p>
+<p>The output <code>1833</code> confirms that <code>nm-applet</code> is running in the background. This means the NetworkManager Applet itself is active, but it's not appearing or being recognized correctly by your XFCE panel.</p>
+<p>Let's consolidate the troubleshooting steps, focusing on getting it to appear on your panel:</p>
+<ol>
+<li>
+<p><strong>Carefully check the "Add New Items" dialog again, looking for generic indicators:</strong></p>
+<ul>
+<li>Right-click on your XFCE panel and select <code>Panel</code> -&gt; <code>Panel Preferences...</code>.</li>
+<li>Go to the <code>Items</code> tab.</li>
+<li>Click the <code>+</code> (Add new item) button.</li>
+<li>Look for anything that sounds like a generic status area where applets might embed themselves, such as:<ul>
+<li>"Status Notifier Plugin"</li>
+<li>"Notification Area"</li>
+<li>"Indicator Plugin"</li>
+</ul>
+</li>
+<li>Sometimes, if one of these generic plugins is added, the <code>nm-applet</code> will automatically appear within it. Ensure you <em>don't</em> have multiple instances of these generic plugins, as that can cause conflicts. If you see more than one "Status Notifier Plugin" or "Notification Area", try removing all but one.</li>
+</ul>
+</li>
+<li>
+<p><strong>Restart the XFCE panel (if you haven't already or to re-apply changes):</strong></p>
+<ul>
+<li>Open a terminal and run:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>xfce4-panel<span class="w"> </span>--restart
+</code></pre></div></li>
+<li>After the panel restarts, repeat step 1 to see if "NetworkManager Applet" or one of the generic indicators appears.</li>
+</ul>
+</li>
+<li>
+<p><strong>Check for an existing system tray or notification area:</strong></p>
+<ul>
+<li>Ensure you have a "Notification Area" or "Status Notifier Plugin" already on your panel. <code>nm-applet</code> often embeds itself within one of these if it's not a standalone item. If you have neither, try adding one.</li>
+</ul>
+</li>
+<li>
+<p><strong>Consider a full system reboot:</strong></p>
+<ul>
+<li>If the above steps don't work, a full system reboot (<code>sudo reboot</code>) can sometimes resolve stubborn graphical environment issues where new applets aren't being picked up correctly.</li>
+</ul>
+</li>
+</ol>
+<p>Please try these steps carefully, focusing on the "Add New Items" dialog and ensuring a proper panel restart. Let me know the outcome.</p>
 <p><strong>General Panel Configuration Steps:</strong>
 1.  Right-click on the XFCE panel -&gt; <code>Panel</code> -&gt; <code>Panel Preferences</code>.
 2.  Adjust panel size, position (typically top for macOS feel), and appearance.
 3.  Add/remove items to match the video's layout (e.g., Application Menu, Xpple Menu, Indicators, Clock).</p>
 <h2 id="5-installing-and-configuring-plank-dock">5. Installing and Configuring Plank Dock<a class="headerlink" href="#5-installing-and-configuring-plank-dock" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>plank
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>plank
 </code></pre></div>
 <strong>Configuration:</strong>
 1.  Run <code>plank</code> from the terminal.
@@ -875,7 +999,7 @@
     *   Comment: <code>macOS-like dock</code></p>
 <h2 id="6-installing-and-configuring-rofi-launcher">6. Installing and Configuring Rofi Launcher<a class="headerlink" href="#6-installing-and-configuring-rofi-launcher" title="Permanent link">&para;</a></h2>
 <p>Source for themes: https://github.com/adi1090x/rofi</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>rofi
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>rofi
 </code></pre></div>
 <strong>Configuration:</strong>
 1.  Clone the Rofi themes repository: <code>git clone https://github.com/adi1090x/rofi.git</code>
@@ -883,8 +1007,8 @@
 3.  Set up a keyboard shortcut for Rofi (e.g., <code>Alt+Space</code>) in <code>Settings Manager</code> -&gt; <code>Keyboard</code> -&gt; <code>Application Shortcuts</code>.
     *   Command: <code>rofi -show drun</code> (or <code>rofi -show run</code> for just commands)</p>
 <h2 id="7-installing-and-configuring-ulauncher">7. Installing and Configuring Ulauncher<a class="headerlink" href="#7-installing-and-configuring-ulauncher" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>yay<span class="w"> </span>-S<span class="w"> </span>ulauncher
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># Or use yay: yay -S ulauncher</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>yay<span class="w"> </span>-S<span class="w"> </span>ulauncher
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># Or use yay: yay -S ulauncher</span>
 </code></pre></div>
 <strong>Configuration:</strong>
 1.  Run Ulauncher once to set it up.
@@ -892,15 +1016,15 @@
 3.  Configure appearance, extensions, and set it to autostart.</p>
 <h2> 8. Installing and Configuring Conky </h2>
 
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>yay<span class="w"> </span>-S<span class="w"> </span>conky-lua-nv
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>jq<span class="w"> </span>curl
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>yay<span class="w"> </span>-S<span class="w"> </span>conky-lua-nv
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>jq<span class="w"> </span>curl
 </code></pre></div>
 <strong>Configuration:</strong>
 <em>This usually involves placing <code>.conkyrc</code> files in your home directory and configuring Conky to autostart. Refer to the video for specific Conky themes and configurations.</em></p>
 <h2> 9. Installing and Configuring LightDM-Webkit2-Greeter </h2>
 
 <p>Theme: https://github.com/manilarome/lightdm-webkit2-theme-macos</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>lightdm-webkit2-greeter
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>lightdm-webkit2-greeter
 </code></pre></div>
 <strong>Configuration:</strong>
 1.  Edit <code>sudo nano /etc/lightdm/lightdm.conf</code> and set <code>greeter-session=lightdm-webkit2-greeter</code>.
@@ -909,7 +1033,7 @@
 4.  Reboot to see the changes.</p>
 <h2> 10. Installing and Configuring Picom Compositor </h2>
 
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>yay<span class="w"> </span>-S<span class="w"> </span>picom-ibhagwan-git
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>yay<span class="w"> </span>-S<span class="w"> </span>picom-ibhagwan-git
 </code></pre></div>
 <strong>Configuration:</strong>
 <em>Picom requires a configuration file, typically <code>~/.config/picom/picom.conf</code>, to enable effects like shadows, transparency, and fading. Refer to the video or Picom documentation for macOS-like settings.</em>
@@ -925,18 +1049,18 @@
 <p><em>This involves going into <code>Terminal</code> -&gt; <code>Preferences</code> and adjusting colors, fonts, transparency, and possibly using a zsh/bash theme with Powerline or similar for prompt customization.</em></p>
 <h2> 13. Installing Nautilus File Manager </h2>
 
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>nautilus
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>nautilus
 </code></pre></div>
 <em>You might want to set Nautilus as your default file manager in <code>Settings Manager</code> -&gt; <code>Preferred Applications</code> -&gt; <code>Utilities</code> -&gt; <code>File Manager</code>.</em></p>
 <h2> 14. Installing Comice Control Center </h2>
 
 <p>Source: https://github.com/libredeb/comice-control-center</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/libredeb/comice-control-center.git
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">cd</span><span class="w"> </span>comice-control-center
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>util-linux<span class="w"> </span>gsettings-desktop-schemas<span class="w"> </span>wireless_tools<span class="w"> </span>iproute<span class="w"> </span>alsa-utils<span class="w"> </span>dbus-python
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python-pip
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>./comice-control-center
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/libredeb/comice-control-center.git
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nb">cd</span><span class="w"> </span>comice-control-center
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>util-linux<span class="w"> </span>gsettings-desktop-schemas<span class="w"> </span>wireless_tools<span class="w"> </span>iproute<span class="w"> </span>alsa-utils<span class="w"> </span>dbus-python
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python-pip
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>./comice-control-center
 </code></pre></div>
 <em>Note: Ensure you have <code>python-pip</code> installed for <code>pip3</code>.</em></p>
 <hr />
@@ -945,11 +1069,11 @@
 <li><strong>Reboot:</strong> After making significant changes, especially to LightDM or core XFCE components, a reboot might be necessary.</li>
 <li><strong>Backups:</strong> Always back up your configuration files (<code>~/.config/xfce4/</code>, <code>~/.config/gtk-3.0/</code>, etc.) before making major changes.</li>
 <li><strong>AUR Helpers:</strong> If <code>pamac build</code> is not available, you might need to install <code>yay</code> or another AUR helper.
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Example for yay</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>--needed<span class="w"> </span>base-devel<span class="w"> </span>git
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://aur.archlinux.org/yay.git
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="nb">cd</span><span class="w"> </span>yay
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>makepkg<span class="w"> </span>-si
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Example for yay</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>--needed<span class="w"> </span>base-devel<span class="w"> </span>git
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://aur.archlinux.org/yay.git
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nb">cd</span><span class="w"> </span>yay
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>makepkg<span class="w"> </span>-si
 </code></pre></div>
     Then replace <code>pamac build</code> commands with <code>yay -S</code>.</li>
 <li><strong>Customization:</strong> The exact look and feel will depend on your personal customization within each application's settings.</li>

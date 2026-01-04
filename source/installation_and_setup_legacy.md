@@ -1,3 +1,7 @@
+**Note:** This is a legacy document. For the most up-to-date installation and optimization guides, please refer to:
+- [Arch Linux Installation Guide](arch_installation.md)
+- [X1 Carbon 6th Gen Optimization Guide](x1c6_optimization.md)
+
 # Gemini OS Setup: Lenovo ThinkPad X1 Carbon 6th Gen
 
 This document is a personalized guide to set up a stable, secure, and optimized Arch Linux system on a Lenovo ThinkPad X1 Carbon 6th Gen (20KG). The goal is longevity and balanced performance for a daily driver.

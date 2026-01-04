@@ -1,4 +1,6 @@
 site_name: Arch Linux on X1 Carbon 6th Gen Documentation
+docs_dir: source
+site_dir: docs
 
 nav:
   - Home: index.md
@@ -6,6 +8,8 @@ nav:
   - X1 Carbon 6th Gen Optimization: x1c6_optimization.md
   - XFCE4 & macOS-like Customization: xfce4_macos_customization.md
   - System Information: system_info.md
+  - Legacy Guides:
+    - Old Setup Guide: installation_and_setup_legacy.md
 
 theme:
   name: material
