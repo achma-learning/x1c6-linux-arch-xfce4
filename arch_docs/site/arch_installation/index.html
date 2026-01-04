@@ -1,0 +1,940 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../x1c6_optimization/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Arch Linux Installation - Arch Linux on X1 Carbon 6th Gen Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arch-linux-installation-guide-for-lenovo-thinkpad-x1-carbon-6th-gen" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Arch Linux on X1 Carbon 6th Gen Documentation" class="md-header__button md-logo" aria-label="Arch Linux on X1 Carbon 6th Gen Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arch Linux on X1 Carbon 6th Gen Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arch Linux Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Arch Linux on X1 Carbon 6th Gen Documentation" class="md-nav__button md-logo" aria-label="Arch Linux on X1 Carbon 6th Gen Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Arch Linux on X1 Carbon 6th Gen Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arch Linux Installation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arch Linux Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#phase-0-base-system-installation-from-live-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 0: Base System Installation (From Live Environment)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-core-system-setup-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Core System Setup &amp; Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Core System Setup &amp; Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-bios-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. BIOS Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-initial-system-update-essential-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Initial System Update &amp; Essential Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grub-dual-boot-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GRUB Dual Boot (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-service-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Service Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-swap-file-for-system-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Swap File for System Stability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tlp-configuration-for-longevity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. TLP Configuration for Longevity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-hardware-specific-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Hardware-Specific Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-ssd-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. SSD Maintenance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-advanced-fixes-optimizations-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Advanced Fixes &amp; Optimizations (Optional but Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-final-system-sanity-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Final System Sanity Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../x1c6_optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    X1 Carbon 6th Gen Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xfce4_macos_customization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XFCE4 & macOS-like Customization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#phase-0-base-system-installation-from-live-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 0: Base System Installation (From Live Environment)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-core-system-setup-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Core System Setup &amp; Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Core System Setup &amp; Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-bios-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. BIOS Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-initial-system-update-essential-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Initial System Update &amp; Essential Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grub-dual-boot-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GRUB Dual Boot (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-service-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Service Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-swap-file-for-system-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Swap File for System Stability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tlp-configuration-for-longevity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. TLP Configuration for Longevity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-hardware-specific-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Hardware-Specific Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-ssd-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. SSD Maintenance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-advanced-fixes-optimizations-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Advanced Fixes &amp; Optimizations (Optional but Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-final-system-sanity-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Final System Sanity Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="arch-linux-installation-guide-for-lenovo-thinkpad-x1-carbon-6th-gen">Arch Linux Installation Guide for Lenovo ThinkPad X1 Carbon 6th Gen<a class="headerlink" href="#arch-linux-installation-guide-for-lenovo-thinkpad-x1-carbon-6th-gen" title="Permanent link">&para;</a></h1>
+<p>This guide covers the initial installation of Arch Linux and core system setup for a Lenovo ThinkPad X1 Carbon 6th Gen (20KG).</p>
+<hr />
+<h2 id="phase-0-base-system-installation-from-live-environment">Phase 0: Base System Installation (From Live Environment)<a class="headerlink" href="#phase-0-base-system-installation-from-live-environment" title="Permanent link">&para;</a></h2>
+<p>This section covers the initial installation of the Arch Linux base system onto your target disk. It is assumed you have already partitioned your disk and mounted the root partition to <code>/mnt</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pacstrap<span class="w"> </span>-K<span class="w"> </span>/mnt<span class="w"> </span>linux<span class="w"> </span>linux-firmware<span class="w"> </span>linux-headers<span class="w"> </span>base<span class="w"> </span>base-devel<span class="w"> </span>nano<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">         </span>networkmanager<span class="w"> </span>grub<span class="w"> </span>efibootmgr<span class="w"> </span>os-prober<span class="w"> </span>bash-completion<span class="w"> </span>iwd<span class="w"> </span>intel-ucode
+</code></pre></div>
+<p><strong>Tip:</strong> You will need to add your CPU microcode package: for Intel, add <code>intel-ucode</code>; for AMD, add <code>amd-ucode</code>.</p>
+<p><strong>Explanation of Packages:</strong></p>
+<ul>
+<li><strong><code>linux</code></strong>: The Linux kernel.</li>
+<li><strong><code>linux-firmware</code></strong>: Firmware files for various hardware devices.</li>
+<li><strong><code>linux-headers</code></strong>: Kernel headers for building modules against the kernel.</li>
+<li><strong><code>base</code></strong>: Essential packages for a minimal Arch Linux system.</li>
+<li><strong><code>base-devel</code></strong>: Development tools for compiling software (make, gcc, etc.).</li>
+<li><strong><code>nano</code></strong>: Simple terminal text editor.</li>
+<li><strong><code>networkmanager</code></strong>: Network management daemon and CLI tools.</li>
+<li><strong><code>grub</code></strong>: Bootloader to start the OS.</li>
+<li><strong><code>efibootmgr</code></strong>: EFI boot manager to configure UEFI boot entries.</li>
+<li><strong><code>os-prober</code></strong>: Detects other OS installations for bootloader configuration.</li>
+<li><strong><code>bash-completion</code></strong>: Bash completions for core commands.</li>
+<li><strong><code>iwd</code></strong>: Wireless daemon for managing Wi-Fi connections.</li>
+<li><strong><code>intel-ucode</code></strong>: Microcode updates for Intel CPUs (essential for X1C6).</li>
+<li><strong><code>amd-ucode</code></strong>: Microcode updates for AMD CPUs (only if applicable, not for X1C6).</li>
+</ul>
+<hr />
+<h2 id="phase-1-core-system-setup-optimization">Phase 1: Core System Setup &amp; Optimization<a class="headerlink" href="#phase-1-core-system-setup-optimization" title="Permanent link">&para;</a></h2>
+<p>These commands should be run <em>after</em> booting into your newly installed Arch Linux system.</p>
+<h3 id="1-bios-configuration">1. BIOS Configuration<a class="headerlink" href="#1-bios-configuration" title="Permanent link">&para;</a></h3>
+<p>Before starting, ensure the following BIOS settings are configured:</p>
+<ul>
+<li><strong>Security → Secure Boot →</strong> <code>Disabled</code></li>
+<li><strong>Config → Power → Sleep State →</strong> <code>Linux</code></li>
+<li><strong>Config → Thunderbolt BIOS Assist Mode →</strong> <code>Enabled</code></li>
+</ul>
+<h3 id="2-initial-system-update-essential-packages">2. Initial System Update &amp; Essential Packages<a class="headerlink" href="#2-initial-system-update-essential-packages" title="Permanent link">&para;</a></h3>
+<p>First, update the system and install a comprehensive set of packages for a fully featured, stable system.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 1. Update all packages</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-Syu
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># 2. Install developer tools, required for some drivers and packages</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>--needed<span class="w"> </span>base-devel
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># 3. Install firmware, microcode, and graphics drivers</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>--needed<span class="w"> </span>linux-firmware<span class="w"> </span>intel-ucode<span class="w"> </span>mesa<span class="w"> </span>vulkan-intel<span class="w"> </span>intel-media-driver
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># 4. Install core utilities for power, networking, and hardware interaction</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>--needed<span class="w"> </span>tlp<span class="w"> </span>tlp-rdw<span class="w"> </span>ufw<span class="w"> </span>thermald<span class="w"> </span>networkmanager<span class="w"> </span>network-manager-applet<span class="w"> </span>bluez<span class="w"> </span>bluez-utils<span class="w"> </span>acpi<span class="w"> </span>acpi_call
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># 5. Install a modern audio stack (PipeWire)</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>--needed<span class="w"> </span>pipewire<span class="w"> </span>pipewire-pulse<span class="w"> </span>wireplumber<span class="w"> </span>pavucontrol<span class="w"> </span>alsa-utils
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1"># 6. Install essential fonts for wide compatibility</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>--needed<span class="w"> </span>noto-fonts<span class="w"> </span>noto-fonts-emoji<span class="w"> </span>noto-fonts-cjk<span class="w"> </span>noto-fonts-extra
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="c1"># 7. Install common utilities and filesystem support</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>--needed<span class="w"> </span>wget<span class="w"> </span>curl<span class="w"> </span>git<span class="w"> </span>xdg-utils<span class="w"> </span>gvfs<span class="w"> </span>openssh<span class="w"> </span>unzip<span class="w"> </span>ntfs-3g<span class="w"> </span>rsync<span class="w"> </span>reflector<span class="w"> </span>cups
+</code></pre></div>
+<h3 id="grub-dual-boot-optional">GRUB Dual Boot (Optional)<a class="headerlink" href="#grub-dual-boot-optional" title="Permanent link">&para;</a></h3>
+<p><em>Note: This section is particularly relevant if you are planning to dual boot with Windows 11 IoT LTSC.</em></p>
+<p>If you intend to dual boot with another operating system, follow these steps to ensure GRUB can detect it. You can skip this if you only plan to run Arch Linux.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/default/grub
+</code></pre></div>
+Open the GRUB configuration file. Find the line <code>#GRUB_DISABLE_OS_PROBER=true</code> and change it to <code>GRUB_DISABLE_OS_PROBER=false</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Uncomment the line by removing the hashtag (#)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">GRUB_DISABLE_OS_PROBER</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<p>After installing <code>intel-ucode</code>, regenerate the GRUB config to load it:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub/grub.cfg
+</code></pre></div></p>
+<h3 id="3-service-configuration">3. Service Configuration<a class="headerlink" href="#3-service-configuration" title="Permanent link">&para;</a></h3>
+<p>Configure the core services for power management, security, networking, and thermal control.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Enable TLP for power management</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>tlp.service
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Mask systemd-rfkill to prevent conflicts with TLP (recommended for ThinkPads)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>mask<span class="w"> </span>systemd-rfkill.service<span class="w"> </span>systemd-rfkill.socket
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Enable the UFW firewall</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>default<span class="w"> </span>deny<span class="w"> </span>incoming
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>default<span class="w"> </span>allow<span class="w"> </span>outgoing
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>sudo<span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c1"># Enable the thermal daemon to prevent overheating</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>thermald.service
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1"># Enable NetworkManager for handling network connections</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>NetworkManager
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="c1"># Enable Bluetooth service</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>bluetooth.service
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="c1"># Enable systemd services for time synchronization and DNS resolution</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>systemd-timesyncd
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>systemd-resolved
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-sf<span class="w"> </span>/run/systemd/resolve/stub-resolv.conf<span class="w"> </span>/etc/resolv.conf
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="c1"># (Optional) Enable the CUPS printing service</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>cups.service
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="c1"># (Optional but Recommended) Disable the cpupower service if it was installed, as TLP handles this</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>--now<span class="w"> </span>cpupower.service
+</code></pre></div>
+<h3 id="4-swap-file-for-system-stability">4. Swap File for System Stability<a class="headerlink" href="#4-swap-file-for-system-stability" title="Permanent link">&para;</a></h3>
+<p>Create a 16GB swap file to prevent the system from running out of memory.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Allocate a 16GB file</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>fallocate<span class="w"> </span>-l<span class="w"> </span>16G<span class="w"> </span>/swapfile
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Set correct permissions</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Format the file as swap</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>sudo<span class="w"> </span>mkswap<span class="w"> </span>/swapfile
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Enable the swap file</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>sudo<span class="w"> </span>swapon<span class="w"> </span>/swapfile
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="c1"># Add to /etc/fstab to make it permanent</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;/swapfile none swap defaults 0 0&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/fstab
+</code></pre></div>
+<h3 id="5-tlp-configuration-for-longevity">5. TLP Configuration for Longevity<a class="headerlink" href="#5-tlp-configuration-for-longevity" title="Permanent link">&para;</a></h3>
+<p>The following settings create a balanced AC profile and a power-saving battery profile.</p>
+<p>First, apply the main settings by editing <code>/etc/tlp.conf</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># /etc/tlp.conf</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># --- AC Profile (Balanced) ---</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nv">CPU_SCALING_GOVERNOR_ON_AC</span><span class="o">=</span>powersave
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nv">CPU_ENERGY_PERF_POLICY_ON_AC</span><span class="o">=</span>balance_performance
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nv">CPU_BOOST_ON_AC</span><span class="o">=</span><span class="m">1</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nv">PCIE_ASPM_ON_AC</span><span class="o">=</span>default
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># --- Battery Profile (Power Save / Longevity) ---</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nv">CPU_SCALING_GOVERNOR_ON_BAT</span><span class="o">=</span>powersave
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="nv">CPU_ENERGY_PERF_POLICY_ON_BAT</span><span class="o">=</span>power
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="nv">CPU_BOOST_ON_BAT</span><span class="o">=</span><span class="m">0</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="nv">PCIE_ASPM_ON_BAT</span><span class="o">=</span>powersupersave
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="nv">PLATFORM_PROFILE_ON_BAT</span><span class="o">=</span>low-power
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="nv">WIFI_PWR_ON_BAT</span><span class="o">=</span>on
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="nv">SOUND_POWER_SAVE_ON_BAT</span><span class="o">=</span><span class="m">1</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="nv">RUNTIME_PM_ON_BAT</span><span class="o">=</span>auto
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="c1"># --- General Settings ---</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="nv">USB_AUTOSUSPEND</span><span class="o">=</span><span class="m">0</span>
+</code></pre></div></p>
+<p>Next, to preserve battery health, set charge thresholds by creating a new file:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/tlp.d/99-battery-thresholds.conf
+</code></pre></div>
+Add the following content to the file:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># Start charging at 40%, stop at 80%
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>START_CHARGE_THRESH_BAT0=40
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>STOP_CHARGE_THRESH_BAT0=80
+</code></pre></div></p>
+<p>Finally, apply all TLP settings with:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>tlp<span class="w"> </span>start
+</code></pre></div></p>
+<h3 id="6-hardware-specific-fixes">6. Hardware-Specific Fixes<a class="headerlink" href="#6-hardware-specific-fixes" title="Permanent link">&para;</a></h3>
+<p>These are common <code>modprobe</code> tweaks for the X1C6.</p>
+<p><strong>WiFi Stability:</strong>
+Create <code>/etc/modprobe.d/iwlwifi.conf</code> and add:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>options iwlwifi 11n_disable=8
+</code></pre></div></p>
+<p><strong>Audio (Fix for low volume):</strong>
+Create <code>/etc/modprobe.d/alsa-base.conf</code> and add:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>options snd-hda-intel model=nofixup
+</code></pre></div></p>
+<h3 id="7-ssd-maintenance">7. SSD Maintenance<a class="headerlink" href="#7-ssd-maintenance" title="Permanent link">&para;</a></h3>
+<p>Enable periodic TRIM to keep the SSD performance optimal.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>fstrim.timer
+</code></pre></div></p>
+<h3 id="8-advanced-fixes-optimizations-optional-but-recommended">8. Advanced Fixes &amp; Optimizations (Optional but Recommended)<a class="headerlink" href="#8-advanced-fixes-optimizations-optional-but-recommended" title="Permanent link">&para;</a></h3>
+<p><strong>Enable Deep Sleep (S3):</strong>
+For better power savings during suspend.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Check available sleep states (should show [s2idle] and deep)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>cat<span class="w"> </span>/sys/power/mem_sleep
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Add the kernel parameter to GRUB config</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/quiet/quiet mem_sleep_default=deep/&#39;</span><span class="w"> </span>/etc/default/grub
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>sudo<span class="w"> </span>grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub/grub.cfg
+</code></pre></div></p>
+<p><strong>Improve Bluetooth Stability:</strong>
+If Bluetooth is flaky after waking from suspend.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Add a kernel parameter to disable BT autosuspend</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/quiet/quiet btusb.enable_autosuspend=0/&#39;</span><span class="w"> </span>/etc/default/grub
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>sudo<span class="w"> </span>grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub/grub.cfg
+</code></pre></div></p>
+<h3 id="9-final-system-sanity-checks">9. Final System Sanity Checks<a class="headerlink" href="#9-final-system-sanity-checks" title="Permanent link">&para;</a></h3>
+<p>After applying all settings and rebooting, run these commands to check for errors.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Check for any critical system log errors since boot</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>journalctl<span class="w"> </span>-p<span class="w"> </span><span class="m">3</span><span class="w"> </span>-xb
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Check if any systemd services have failed to start</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>systemctl<span class="w"> </span>--failed
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/your-username/your-repo" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

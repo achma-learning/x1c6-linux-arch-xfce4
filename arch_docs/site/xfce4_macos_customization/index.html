@@ -1,0 +1,999 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../x1c6_optimization/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>XFCE4 & macOS-like Customization - Arch Linux on X1 Carbon 6th Gen Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#xfce4-and-macos-like-customization" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Arch Linux on X1 Carbon 6th Gen Documentation" class="md-header__button md-logo" aria-label="Arch Linux on X1 Carbon 6th Gen Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arch Linux on X1 Carbon 6th Gen Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              XFCE4 & macOS-like Customization
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Arch Linux on X1 Carbon 6th Gen Documentation" class="md-nav__button md-logo" aria-label="Arch Linux on X1 Carbon 6th Gen Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Arch Linux on X1 Carbon 6th Gen Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arch_installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arch Linux Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../x1c6_optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    X1 Carbon 6th Gen Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XFCE4 & macOS-like Customization
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XFCE4 & macOS-like Customization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-initial-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Initial Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Initial Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-essential-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install Essential Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installing-and-configuring-themes-icons-cursors-and-fonts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Installing and Configuring Themes, Icons, Cursors, and Fonts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Installing and Configuring Themes, Icons, Cursors, and Fonts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-installing-mactahoe-gtk-theme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Installing MacTahoe-GTK-Theme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-installing-mactahoe-icon-theme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Installing MacTahoe-Icon-Theme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-installing-whitesur-cursors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Installing WhiteSur-Cursors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-installing-fonts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Installing Fonts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-installing-global-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Installing Global Menu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configuring-xfce-panel-download-xpple-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configuring XFCE Panel | Download Xpple Menu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configuring XFCE Panel | Download Xpple Menu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-sound-picker-and-battery-indicator-to-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Sound Picker and Battery Indicator to Panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-network-plugin-to-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Network Plugin to Panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-installing-and-configuring-plank-dock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Installing and Configuring Plank Dock
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-installing-and-configuring-rofi-launcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Installing and Configuring Rofi Launcher
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-installing-and-configuring-ulauncher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Installing and Configuring Ulauncher
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-initial-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Initial Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Initial Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-essential-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install Essential Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installing-and-configuring-themes-icons-cursors-and-fonts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Installing and Configuring Themes, Icons, Cursors, and Fonts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Installing and Configuring Themes, Icons, Cursors, and Fonts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-installing-mactahoe-gtk-theme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Installing MacTahoe-GTK-Theme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-installing-mactahoe-icon-theme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Installing MacTahoe-Icon-Theme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-installing-whitesur-cursors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Installing WhiteSur-Cursors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-installing-fonts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Installing Fonts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-installing-global-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Installing Global Menu
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configuring-xfce-panel-download-xpple-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configuring XFCE Panel | Download Xpple Menu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configuring XFCE Panel | Download Xpple Menu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-sound-picker-and-battery-indicator-to-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Sound Picker and Battery Indicator to Panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-network-plugin-to-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Network Plugin to Panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-installing-and-configuring-plank-dock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Installing and Configuring Plank Dock
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-installing-and-configuring-rofi-launcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Installing and Configuring Rofi Launcher
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-installing-and-configuring-ulauncher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Installing and Configuring Ulauncher
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="xfce4-and-macos-like-customization">XFCE4 and macOS-like Customization<a class="headerlink" href="#xfce4-and-macos-like-customization" title="Permanent link">&para;</a></h1>
+<p>This guide provides step-by-step instructions to configure your Arch Linux XFCE4 desktop environment to mimic macOS, based on the provided YouTube video chapters.</p>
+<hr />
+<h2 id="1-initial-setup">1. Initial Setup<a class="headerlink" href="#1-initial-setup" title="Permanent link">&para;</a></h2>
+<h3 id="install-essential-tools">Install Essential Tools<a class="headerlink" href="#install-essential-tools" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>git<span class="w"> </span>lxappearance<span class="w"> </span>pamac<span class="w"> </span><span class="c1"># pamac if not already installed, for AUR packages</span>
+</code></pre></div>
+<h2 id="2-installing-and-configuring-themes-icons-cursors-and-fonts">2. Installing and Configuring Themes, Icons, Cursors, and Fonts<a class="headerlink" href="#2-installing-and-configuring-themes-icons-cursors-and-fonts" title="Permanent link">&para;</a></h2>
+<h3 id="21-installing-mactahoe-gtk-theme">2.1 Installing MacTahoe-GTK-Theme<a class="headerlink" href="#21-installing-mactahoe-gtk-theme" title="Permanent link">&para;</a></h3>
+<p>Source: https://github.com/vinceliuice/MacTahoe-gtk-theme</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/vinceliuice/MacTahoe-gtk-theme.git
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>MacTahoe-gtk-theme
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>./install.sh<span class="w"> </span><span class="c1"># Run the installation script, follow prompts for options</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">cd</span><span class="w"> </span>..
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>rm<span class="w"> </span>-rf<span class="w"> </span>MacTahoe-gtk-theme<span class="w"> </span><span class="c1"># Clean up</span>
+</code></pre></div>
+<strong>Apply the GTK Theme:</strong>
+1.  Open <code>lxappearance</code> from the terminal or <code>Settings Manager</code> -&gt; <code>Appearance</code>.
+2.  In the "Widget" tab, select <code>MacTahoe-Dark</code> (or preferred MacTahoe variant).</p>
+<h3 id="22-installing-mactahoe-icon-theme">2.2 Installing MacTahoe-Icon-Theme<a class="headerlink" href="#22-installing-mactahoe-icon-theme" title="Permanent link">&para;</a></h3>
+<p>Source: https://github.com/vinceliuice/MacTahoe-icon-theme</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/vinceliuice/MacTahoe-icon-icon-theme.git
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>MacTahoe-icon-theme
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>./install.sh<span class="w"> </span><span class="c1"># Run the installation script</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">cd</span><span class="w"> </span>..
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>rm<span class="w"> </span>-rf<span class="w"> </span>MacTahoe-icon-theme<span class="w"> </span><span class="c1"># Clean up</span>
+</code></pre></div>
+<strong>Apply the Icon Theme:</strong>
+1.  Open <code>lxappearance</code>.
+2.  In the "Icon Theme" tab, select <code>MacTahoe-Dark</code> (or preferred MacTahoe variant).</p>
+<h3 id="23-installing-whitesur-cursors">2.3 Installing WhiteSur-Cursors<a class="headerlink" href="#23-installing-whitesur-cursors" title="Permanent link">&para;</a></h3>
+<p>Source: https://github.com/vinceliuice/WhiteSur-cursors</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/vinceliuice/WhiteSur-cursors.git
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>WhiteSur-cursors
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>./install.sh<span class="w"> </span><span class="c1"># Run the installation script</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">cd</span><span class="w"> </span>..
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>rm<span class="w"> </span>-rf<span class="w"> </span>WhiteSur-cursors<span class="w"> </span><span class="c1"># Clean up</span>
+</code></pre></div>
+<strong>Apply the Cursor Theme:</strong>
+11. Open <code>lxappearance</code>.
+2.  In the "Cursor Theme" tab, select <code>WhiteSur-Cursors</code>.
+3.  Also, go to <code>Settings Manager</code> -&gt; <code>Mouse and Touchpad</code> -&gt; <code>Theme</code> tab and select <code>WhiteSur-Cursors</code>.</p>
+<h3 id="24-installing-fonts">2.4 Installing Fonts<a class="headerlink" href="#24-installing-fonts" title="Permanent link">&para;</a></h3>
+<p><em>Specific fonts are not mentioned, but generally, you would install fonts like San Francisco or similar clean sans-serif fonts.</em></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Example: If using AUR helper like yay (replace pamac build with yay -S if you use yay)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># pamac build ttf-apple-fonts # Or search for specific macOS-like fonts</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># pamac build otf-sanfrancisco</span>
+</code></pre></div>
+<strong>Configure Fonts:</strong>
+1.  Go to <code>Settings Manager</code> -&gt; <code>Appearance</code> -&gt; <code>Fonts</code> tab.
+2.  Adjust "Default Font," "Monospace Font," etc., to your desired macOS-like fonts.
+3.  Also, check <code>Settings Manager</code> -&gt; <code>Window Manager</code> -&gt; <code>Font</code> for window title fonts.</p>
+<h2 id="3-installing-global-menu">3. Installing Global Menu<a class="headerlink" href="#3-installing-global-menu" title="Permanent link">&para;</a></h2>
+<p>This section specifically uses AUR packages, which require an AUR helper like 'yay'. If 'yay' is not installed, please refer to the "AUR Helpers" section at the end of this document.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>yay<span class="w"> </span>-S<span class="w"> </span>vala-panel-appmenu-registrar<span class="w"> </span>vala-panel-appmenu-xfce<span class="w"> </span>--mflags<span class="w"> </span><span class="s2">&quot;_build_mate=false _build_vala=false _build_budgie=false&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>appmenu-gtk-module
+</code></pre></div>
+<p><strong>After enabling vala-appmenu in XFCE Panel (Panel Preferences -&gt; Items -&gt; Add 'Applications Menu' and 'Appmenu Plugin'):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>xfconf-query<span class="w"> </span>-c<span class="w"> </span>xsettings<span class="w"> </span>-p<span class="w"> </span>/Gtk/ShellShowsMenubar<span class="w"> </span>-n<span class="w"> </span>-t<span class="w"> </span>bool<span class="w"> </span>-s<span class="w"> </span><span class="nb">true</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>xfconf-query<span class="w"> </span>-c<span class="w"> </span>xsettings<span class="w"> </span>-p<span class="w"> </span>/Gtk/ShellShowsAppmenu<span class="w"> </span>-n<span class="w"> </span>-t<span class="w"> </span>bool<span class="w"> </span>-s<span class="w"> </span><span class="nb">true</span>
+</code></pre></div>
+<h2 id="4-configuring-xfce-panel-download-xpple-menu">4. Configuring XFCE Panel | Download Xpple Menu<a class="headerlink" href="#4-configuring-xfce-panel-download-xpple-menu" title="Permanent link">&para;</a></h2>
+<p>The video suggests downloading "Xpple Menu" from Pling.com. You will likely need to follow the instructions provided on the Pling page for installation and configuration.</p>
+<p>Source: https://www.pling.com/p/1529470/</p>
+<h3 id="adding-sound-picker-and-battery-indicator-to-panel">Adding Sound Picker and Battery Indicator to Panel<a class="headerlink" href="#adding-sound-picker-and-battery-indicator-to-panel" title="Permanent link">&para;</a></h3>
+<p>To ensure you have a sound picker and battery indicator, you'll need the respective XFCE panel plugins.</p>
+<p><strong>1. Install necessary plugins (if not already installed):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>xfce4-pulseaudio-plugin<span class="w"> </span>xfce4-battery-plugin
+</code></pre></div>
+<em>Note: If you are using PipeWire instead of PulseAudio, the <code>xfce4-pulseaudio-plugin</code> might still work, or you might need an alternative like <code>xfce4-volumed-pulse</code> from AUR if available and preferred.</em></p>
+<p><strong>2. Add to your XFCE Panel:</strong>
+1.  Right-click on your XFCE panel and select <code>Panel</code> -&gt; <code>Panel Preferences...</code>.
+2.  Go to the <code>Items</code> tab.
+3.  Click the <code>+</code> (Add new item) button.
+4.  In the dialog, search for and add:
+    *   <code>PulseAudio Plugin</code> (for sound picker)
+    *   <code>Battery Monitor</code> (for battery indicator)
+5.  You can select each added item in the <code>Items</code> list and use the Up/Down arrows to change their position on the panel.
+6.  Close the Panel Preferences window. You should now see the sound picker and battery indicator on your panel.</p>
+<h3 id="adding-network-plugin-to-panel">Adding Network Plugin to Panel<a class="headerlink" href="#adding-network-plugin-to-panel" title="Permanent link">&para;</a></h3>
+<p>To manage your network connections and see network status on your panel, you'll typically use the NetworkManager Applet.</p>
+<p><strong>1. Install necessary package (if not already installed):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>network-manager-applet
+</code></pre></div></p>
+<p><strong>2. Add to your XFCE Panel:</strong>
+1.  Right-click on your XFCE panel and select <code>Panel</code> -&gt; <code>Panel Preferences...</code>.
+2.  Go to the <code>Items</code> tab.
+3.  Click the <code>+</code> (Add new item) button.
+4.  In the dialog, search for and add:
+    *   <code>NetworkManager Applet</code>
+5.  You can select the added item in the <code>Items</code> list and use the Up/Down arrows to change its position on the panel.
+6.  Close the Panel Preferences window. You should now see the network icon on your panel, allowing you to manage Wi-Fi, wired connections, etc.</p>
+<p><strong>General Panel Configuration Steps:</strong>
+1.  Right-click on the XFCE panel -&gt; <code>Panel</code> -&gt; <code>Panel Preferences</code>.
+2.  Adjust panel size, position (typically top for macOS feel), and appearance.
+3.  Add/remove items to match the video's layout (e.g., Application Menu, Xpple Menu, Indicators, Clock).</p>
+<h2 id="5-installing-and-configuring-plank-dock">5. Installing and Configuring Plank Dock<a class="headerlink" href="#5-installing-and-configuring-plank-dock" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>plank
+</code></pre></div>
+<strong>Configuration:</strong>
+1.  Run <code>plank</code> from the terminal.
+2.  Right-click on the Plank dock -&gt; <code>Preferences</code> to configure themes, position (bottom), auto-hide behavior, and items.
+3.  Add Plank to autostart: <code>Settings Manager</code> -&gt; <code>Session and Startup</code> -&gt; <code>Application Autostart</code> -&gt; <code>Add</code>.
+    *   Name: <code>Plank</code>
+    *   Command: <code>plank</code>
+    *   Comment: <code>macOS-like dock</code></p>
+<h2 id="6-installing-and-configuring-rofi-launcher">6. Installing and Configuring Rofi Launcher<a class="headerlink" href="#6-installing-and-configuring-rofi-launcher" title="Permanent link">&para;</a></h2>
+<p>Source for themes: https://github.com/adi1090x/rofi</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>rofi
+</code></pre></div>
+<strong>Configuration:</strong>
+1.  Clone the Rofi themes repository: <code>git clone https://github.com/adi1090x/rofi.git</code>
+2.  Follow the instructions in the <code>rofi</code> repository for installation and applying themes.
+3.  Set up a keyboard shortcut for Rofi (e.g., <code>Alt+Space</code>) in <code>Settings Manager</code> -&gt; <code>Keyboard</code> -&gt; <code>Application Shortcuts</code>.
+    *   Command: <code>rofi -show drun</code> (or <code>rofi -show run</code> for just commands)</p>
+<h2 id="7-installing-and-configuring-ulauncher">7. Installing and Configuring Ulauncher<a class="headerlink" href="#7-installing-and-configuring-ulauncher" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>yay<span class="w"> </span>-S<span class="w"> </span>ulauncher
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># Or use yay: yay -S ulauncher</span>
+</code></pre></div>
+<strong>Configuration:</strong>
+1.  Run Ulauncher once to set it up.
+2.  Access preferences by right-clicking on its icon in the system tray or pressing the hotkey (default <code>Ctrl+Space</code>).
+3.  Configure appearance, extensions, and set it to autostart.</p>
+<h2> 8. Installing and Configuring Conky </h2>
+
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>yay<span class="w"> </span>-S<span class="w"> </span>conky-lua-nv
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>jq<span class="w"> </span>curl
+</code></pre></div>
+<strong>Configuration:</strong>
+<em>This usually involves placing <code>.conkyrc</code> files in your home directory and configuring Conky to autostart. Refer to the video for specific Conky themes and configurations.</em></p>
+<h2> 9. Installing and Configuring LightDM-Webkit2-Greeter </h2>
+
+<p>Theme: https://github.com/manilarome/lightdm-webkit2-theme-macos</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>lightdm-webkit2-greeter
+</code></pre></div>
+<strong>Configuration:</strong>
+1.  Edit <code>sudo nano /etc/lightdm/lightdm.conf</code> and set <code>greeter-session=lightdm-webkit2-greeter</code>.
+2.  Clone the theme: <code>git clone https://github.com/manilarome/lightdm-webkit2-theme-macos.git /usr/share/lightdm-webkit2/themes/macos</code>
+3.  Edit <code>sudo nano /etc/lightdm/lightdm-webkit2-greeter.conf</code> and set <code>webkit_theme=macos</code>.
+4.  Reboot to see the changes.</p>
+<h2> 10. Installing and Configuring Picom Compositor </h2>
+
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>yay<span class="w"> </span>-S<span class="w"> </span>picom-ibhagwan-git
+</code></pre></div>
+<strong>Configuration:</strong>
+<em>Picom requires a configuration file, typically <code>~/.config/picom/picom.conf</code>, to enable effects like shadows, transparency, and fading. Refer to the video or Picom documentation for macOS-like settings.</em>
+1.  Add <code>picom</code> to autostart: <code>Settings Manager</code> -&gt; <code>Session and Startup</code> -&gt; <code>Application Autostart</code> -&gt; <code>Add</code>.
+    *   Name: <code>Picom</code>
+    *   Command: <code>picom --config ~/.config/picom/picom.conf</code> (or just <code>picom</code> if you put config in default location)
+    *   Comment: <code>Compositor for visual effects</code></p>
+<h2> 11. Customize Firefox Web Browser </h2>
+
+<p><em>The video likely demonstrates specific Firefox themes or CSS modifications. This usually involves installing themes from the Firefox Add-ons store or using <code>userChrome.css</code> for advanced customization.</em></p>
+<h2> 12. Customize XFCE Terminal </h2>
+
+<p><em>This involves going into <code>Terminal</code> -&gt; <code>Preferences</code> and adjusting colors, fonts, transparency, and possibly using a zsh/bash theme with Powerline or similar for prompt customization.</em></p>
+<h2> 13. Installing Nautilus File Manager </h2>
+
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>nautilus
+</code></pre></div>
+<em>You might want to set Nautilus as your default file manager in <code>Settings Manager</code> -&gt; <code>Preferred Applications</code> -&gt; <code>Utilities</code> -&gt; <code>File Manager</code>.</em></p>
+<h2> 14. Installing Comice Control Center </h2>
+
+<p>Source: https://github.com/libredeb/comice-control-center</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/libredeb/comice-control-center.git
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">cd</span><span class="w"> </span>comice-control-center
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>util-linux<span class="w"> </span>gsettings-desktop-schemas<span class="w"> </span>wireless_tools<span class="w"> </span>iproute<span class="w"> </span>alsa-utils<span class="w"> </span>dbus-python
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python-pip
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>./comice-control-center
+</code></pre></div>
+<em>Note: Ensure you have <code>python-pip</code> installed for <code>pip3</code>.</em></p>
+<hr />
+<p><strong>Final Notes:</strong></p>
+<ul>
+<li><strong>Reboot:</strong> After making significant changes, especially to LightDM or core XFCE components, a reboot might be necessary.</li>
+<li><strong>Backups:</strong> Always back up your configuration files (<code>~/.config/xfce4/</code>, <code>~/.config/gtk-3.0/</code>, etc.) before making major changes.</li>
+<li><strong>AUR Helpers:</strong> If <code>pamac build</code> is not available, you might need to install <code>yay</code> or another AUR helper.
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Example for yay</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>--needed<span class="w"> </span>base-devel<span class="w"> </span>git
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://aur.archlinux.org/yay.git
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="nb">cd</span><span class="w"> </span>yay
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>makepkg<span class="w"> </span>-si
+</code></pre></div>
+    Then replace <code>pamac build</code> commands with <code>yay -S</code>.</li>
+<li><strong>Customization:</strong> The exact look and feel will depend on your personal customization within each application's settings.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/your-username/your-repo" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
