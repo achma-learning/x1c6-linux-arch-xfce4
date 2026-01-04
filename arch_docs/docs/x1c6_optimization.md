@@ -4,112 +4,22 @@ This document outlines various optimizations and hardware-specific fixes for you
 
 ---
 
-## TLP Configuration for Longevity
-
-The following settings create a balanced AC profile and a power-saving battery profile.
-
-First, apply the main settings by editing `/etc/tlp.conf`:
-```bash
-# /etc/tlp.conf
-
-# --- AC Profile (Balanced) ---
-CPU_SCALING_GOVERNOR_ON_AC=powersave
-CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
-CPU_BOOST_ON_AC=1
-PCIE_ASPM_ON_AC=default
-
-# --- Battery Profile (Power Save / Longevity) ---
-CPU_SCALING_GOVERNOR_ON_BAT=powersave
-CPU_ENERGY_PERF_POLICY_ON_BAT=power
-CPU_BOOST_ON_BAT=0
-PCIE_ASPM_ON_BAT=powersupersave
-PLATFORM_PROFILE_ON_BAT=low-power
-WIFI_PWR_ON_BAT=on
-SOUND_POWER_SAVE_ON_BAT=1
-RUNTIME_PM_ON_BAT=auto
-
-# --- General Settings ---
-USB_AUTOSUSPEND=0
-```
-
-Next, to preserve battery health, set charge thresholds by creating a new file:
-```bash
-sudo nano /etc/tlp.d/99-battery-thresholds.conf
-```
-Add the following content to the file:
-```
-# Start charging at 40%, stop at 80%
-START_CHARGE_THRESH_BAT0=40
-STOP_CHARGE_THRESH_BAT0=80
-```
-
-Finally, apply all TLP settings with:
-```bash
-sudo tlp start
-```
-
----
-
-## Hardware-Specific Fixes
-
-These are common `modprobe` tweaks for the X1C6.
-
-**WiFi Stability:**
-Create `/etc/modprobe.d/iwlwifi.conf` and add:
-```
-options iwlwifi 11n_disable=8
-```
-
-**Audio (Fix for low volume):**
-Create `/etc/modprobe.d/alsa-base.conf` and add:
-```
-options snd-hda-intel model=nofixup
-```
-
----
-
-## SSD Maintenance
-
-Enable periodic TRIM to keep the SSD performance optimal.
-```bash
-sudo systemctl enable --now fstrim.timer
-```
-
----
-
-## Advanced Fixes & Optimizations (Optional but Recommended)
-
-**Enable Deep Sleep (S3):**
-For better power savings during suspend.
-```bash
-# Check available sleep states (should show [s2idle] and deep)
-cat /sys/power/mem_sleep
-
-# Add the kernel parameter to GRUB config
-sudo sed -i 's/quiet/quiet mem_sleep_default=deep/' /etc/default/grub
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-**Improve Bluetooth Stability:**
-If Bluetooth is flaky after waking from suspend.
-```bash
-# Add a kernel parameter to disable BT autosuspend
-sudo sed -i 's/quiet/quiet btusb.enable_autosuspend=0/' /etc/default/grub
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-
----
-
 # Optimization and Productivity Guide: Lenovo ThinkPad X1 Carbon (Gen 6) on Arch Linux
 
 This guide provides a checklist of tasks to optimize your system for performance, battery life, and productivity.
 
 ## 1. Core System & BIOS Configuration
 
-- [ ] **Update BIOS Firmware:** Use the `fwupd` utility to ensure your BIOS is up to date.
-  - `sudo fwupdmgr refresh`
-  - `sudo fwupdmgr get-updates`
-  - `sudo fwupdmgr update`
+- [ ] **Update BIOS Firmware:** Use the `fwupd` utility to ensure your BIOS (and other firmware like Thunderbolt controller) is up to date.
+  - **BIOS Settings for Updates:** In the BIOS setup menu under `Security -> UEFI BIOS Update Option`, ensure both `Flash BIOS Updating by End-Users` and `Windows UEFI Firmware Update` are enabled.
+  - **Automatic Update:**
+    - `sudo fwupdmgr refresh`
+    - `sudo fwupdmgr get-updates`
+    - `sudo fwupdmgr update`
+  - **Manual Update (`.cab` file):**
+    - Download the latest `.cab` file from the [Lenovo support website](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-x-series-laptops/thinkpad-x1-carbon-6th-gen-type-20kh-20kg/downloads/driver-list).
+    - `sudo fwupdmgr install /path/to/your/downloaded.cab`
+    - Restart the system to apply the update.
 
 - [ ] **Check BIOS Settings:** Reboot and enter the BIOS to configure the following for better compatibility and power management.
   - **Config > Power > Sleep State** -> Set to **"Linux"** (Enables S3 deep sleep).
@@ -137,9 +47,15 @@ This guide provides a checklist of tasks to optimize your system for performance
 ## 3. Performance Tuning
 
 ### CPU
-- [ ] **Install Thermal Daemon:** Prevents premature CPU thermal throttling that can occur on this model.
-  - `sudo pacman -S thermald`
-  - `sudo systemctl enable --now thermald.service`
+- [ ] **Install Thermal Daemon (`thermald` or `throttled`):** Prevents premature CPU thermal throttling that can occur on this model.
+  - Choose one:
+    - **`thermald` (Recommended for general use):**
+      - `sudo pacman -S thermald`
+      - `sudo systemctl enable --now thermald.service`
+    - **`throttled` (Advanced, includes undervolting):**
+      - Install from AUR (e.g., using `paru`): `paru -S throttled`
+      - `sudo systemctl enable --now throttled.service`
+      - *Note: If using `throttled`, consider disabling `thermald` to avoid conflicts.*
 
 ### SSD
 - [ ] **Enable Periodic TRIM:** Maintains SSD performance over time.
@@ -169,13 +85,61 @@ This guide provides a checklist of tasks to optimize your system for performance
   - Add the line: `options snd-hda-intel model=nofixup`
   - *Note: This may disable the mute button LED.*
 
+- [ ] **Fix Microphone Distortion:** If your microphone volume increases automatically and distorts the sound, disable mic boost.
+  - Open `pavucontrol` (PulseAudio Volume Control) and navigate to the "Input Devices" tab.
+  - Unlock the channels and reduce the "Microphone Boost" level to 0dB, or adjust to a suitable level.
+
+- [ ] **Suspend Fails with USB-C Devices:** If the system immediately resumes from suspend when devices are plugged into USB-C, it might be due to USB devices waking the computer.
+  - Check if `grep XHC /proc/acpi/wakeup` shows `enabled`.
+  - If so, disable XHC wakeup: `echo XHC > /proc/bus/usb/drivers/usb/unbind` (or `/proc/acpi/wakeup`)
+  - To make this permanent, create a systemd service:
+    `/etc/systemd/system/disable-xhc-wakeup.service`
+    ```
+    Description=Disable XHC wakeup to fix suspend issues
+    [Service]
+    ExecStart=/bin/bash -c 'grep --silent "^XHC.*disabled" /proc/acpi/wakeup || echo XHC > /proc/acpi/wakeup'
+    Type=oneshot
+    RemainAfterExit=yes
+    [Install]
+    WantedBy=multi-user.target
+    ```
+  - Enable and start the service: `sudo systemctl enable --now disable-xhc-wakeup.service`
+
 - [ ] **Fix Slow WiFi:** If your wireless speeds are poor, try this module option.
   - Create a file: `sudo nano /etc/modprobe.d/iwlwifi.conf`
   - Add the line: `options iwlwifi 11n_disable=8`
 
-- [ ] **(Optional) Disable ThinkPad Lid LED:** Save a tiny amount of power by turning off the blinking red light.
-  - Add `ec_sys.write_support=1` to your kernel parameters (in `/etc/default/grub`).
-  - Create a systemd service to run the command to turn it off at boot.
+- [ ] **TrackPoint and Touchpad Issues:** Address issues with simultaneous operation and dead trackpads.
+  - **Simultaneous Operation:** To get the TrackPoint and Touchpad to work at the same time, add `synaptics_intertouch=1` to the `psmouse` kernel module options.
+    - Create a file: `/etc/modprobe.d/psmouse.conf`
+    - Add the line: `options psmouse synaptics_intertouch=1`
+  - **Reconnecting Dead Trackpad:** If the trackpad stops responding after suspend, use these commands:
+    ```bash
+    printf none > /sys/bus/serio/devices/serio1/drvctl
+    printf reconnect > /sys/bus/serio/devices/serio1/drvctl
+    ```
+
+- [ ] **Fingerprint Reader:** Enable the integrated fingerprint reader.
+  - Install `fprintd` and `python-validity` (from AUR).
+    - `sudo pacman -S fprintd`
+    - `paru -S python-validity` (assuming `paru` AUR helper is installed)
+  - Configure `fprintd` to enroll fingerprints.
+    - `fprintd-enroll`
+
+- [ ] **(Optional) Disable ThinkPad Lid LED:** Save a tiny amount of power by turning off the blinking red light in the ThinkPad logo on the cover.
+  - **Enable EC Write Support:** Add the kernel parameter `ec_sys.write_support=1` to your GRUB configuration (`/etc/default/grub`).
+    - Example: `GRUB_CMDLINE_LINUX_DEFAULT="... quiet ec_sys.write_support=1"`
+    - Run `sudo grub-mkconfig -o /boot/grub/grub.cfg` afterwards.
+  - **Create Systemd Service:** Create a service to turn off the LED at boot.
+    `/etc/systemd/system/disable-lid-led.service`
+    ```
+    Description=Disabling ThinkPad Lid LED
+    [Service]
+    ExecStart=/bin/bash -c "printf '\\x0a' | dd of=/sys/kernel/debug/ec/ec0/io bs=1 seek=12 count=1 conv=notrunc 2> /dev/null"
+    [Install]
+    WantedBy=multi-user.target
+    ```
+  - Enable and start the service: `sudo systemctl enable --now disable-lid-led.service`
 
 ## 5. Productivity Enhancements
 
@@ -195,6 +159,31 @@ This guide provides a checklist of tasks to optimize your system for performance
 
 - [ ] **Remove Orphaned Packages:** Uninstall dependencies that are no longer required by any package.
   - `sudo pacman -Rns $(pacman -Qtdq)`
+
+## 7. Hardware Warnings
+
+- [ ] **NVMe Disk Failure:** There is a known issue with the NVMe disk installed in some ThinkPad X1 Carbon (Gen 6) models that can result in device failure. It is recommended to check for and apply firmware updates or contact Lenovo support for a replacement if you experience issues.
+
+## 8. Thunderbolt Dock Configuration
+
+For users with Thunderbolt docks, specific configurations might be needed to ensure stability and proper functionality.
+
+### Plugable USB-C Mini Docking Station with 85W Power Delivery (UD-CAM)
+
+If you experience random disconnections (external monitor, Bluetooth, Ethernet), check the following:
+
+- **BIOS Settings:**
+  - `Wake by Thunderbolt`: `Enabled`
+  - `Security Level`: `No Security`
+  - `Pre-boot ACL option`: `Enabled`
+
+- **TLP Blacklisting from USB autosuspend:**
+  - Edit `/etc/tlp.conf` and exclude dock devices from USB autosuspend. You'll need to find the correct Vendor:Product IDs for your dock (e.g., `lsusb`).
+  - Example: `USB_DENYLIST=="0000:1111 2222:3333 4444:5555"`
+
+### Lenovo Dock
+
+Some problems can be caused by outdated dock firmware. Updates are typically not supplied by LVFS; use "Firmware for Windows" from the dock support page.
 
 ## 3) Graphics Stack
 
@@ -286,3 +275,9 @@ Section "InputClass"
 EndSection
 ```
 (Shows only serious errors)
+
+---
+
+## Sources
+
+- [Lenovo ThinkPad X1 Carbon (Gen 6) - ArchWiki](https://wiki.archlinux.org/title/Lenovo_ThinkPad_X1_Carbon_(Gen_6))
