@@ -4,7 +4,7 @@ This page provides an overview of the system's hardware and software configurati
 
 ## Hardware Details
 
-*   **PC Model:** ThinkPad X1 Carbon 6th (20KGS3W806)
+*   **PC Model:** ThinkPad X1 Carbon 6th (20KG)
 *   **System Version:** ThinkPad X1 Carbon 6th
 *   **BIOS Version:** N23ET93W (1.68)
 
