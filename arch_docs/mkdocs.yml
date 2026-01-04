@@ -5,6 +5,7 @@ nav:
   - Arch Linux Installation: arch_installation.md
   - X1 Carbon 6th Gen Optimization: x1c6_optimization.md
   - XFCE4 & macOS-like Customization: xfce4_macos_customization.md
+  - System Information: system_info.md
 
 theme:
   name: material
