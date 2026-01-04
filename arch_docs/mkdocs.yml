@@ -1,0 +1,42 @@
+site_name: Arch Linux on X1 Carbon 6th Gen Documentation
+
+nav:
+  - Home: index.md
+  - Arch Linux Installation: arch_installation.md
+  - X1 Carbon 6th Gen Optimization: x1c6_optimization.md
+  - XFCE4 & macOS-like Customization: xfce4_macos_customization.md
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: blue
+    accent: red
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: material/library
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/your-username/your-repo # Replace with actual GitHub link
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - toc:
+      permalink: true

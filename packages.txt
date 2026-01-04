@@ -1,0 +1,7 @@
+# Package Changelog
+
+## 2026-01-04
+### Initial package list
+This entry records the state of 'packages.txt' on this date as the baseline for future changes.
+
+No specific changes (additions/removals) to report from a previous state.
