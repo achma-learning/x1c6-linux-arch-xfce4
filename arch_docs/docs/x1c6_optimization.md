@@ -196,3 +196,93 @@ This guide provides a checklist of tasks to optimize your system for performance
 - [ ] **Remove Orphaned Packages:** Uninstall dependencies that are no longer required by any package.
   - `sudo pacman -Rns $(pacman -Qtdq)`
 
+## 3) Graphics Stack
+
+Intel graphics on X1 Carbon Gen6 prefer modesetting:
+
+```bash
+sudo pacman -S --needed mesa vulkan-intel
+
+```
+
+Optional (can help with older apps but not required):
+
+```bash
+sudo pacman -S xf86-video-intel
+
+```
+
+Ensure Xorg basics:
+
+```bash
+sudo pacman -S --needed xorg-server xf86-input-libinput
+
+```
+
+---
+
+### Enable Laptop-Specific Kernel Modules
+
+#### ThinkPad ACPI support:
+```bash
+sudo pacman -S acpi acpi_call
+```
+
+Load ThinkPad module:
+```bash
+sudo modprobe thinkpad_acpi
+```
+
+Confirm:
+```bash
+ls /proc/acpi/ibm
+```
+
+---
+
+### Improve SSD Stability & Lifespan
+
+#### Enable periodic TRIM:
+```bash
+sudo systemctl enable fstrim.timer
+sudo systemctl start fstrim.timer
+```
+
+Check:
+```bash
+systemctl status fstrim.timer
+```
+
+---
+
+### Basic Stability Check
+```bash
+journalctl -p 3 -xb
+```
+
+## Optional TrackPoint / Touchpad Tuning
+
+Install:
+
+```bash
+sudo pacman -S --needed xf86-input-synaptics
+```
+
+Then configure:
+
+```bash
+sudo nano /etc/X11/xorg.conf.d/90-trackpoint.conf
+```
+
+Example:
+
+```
+Section "InputClass"
+    Identifier "TrackPoint"
+    MatchProduct "DualPoint Stick"
+    Option "AccelerationProfile" "2"
+    Option "AccelerationScheme" "predictable"
+    Option "Sensitivity" "200"
+EndSection
+```
+(Shows only serious errors)
