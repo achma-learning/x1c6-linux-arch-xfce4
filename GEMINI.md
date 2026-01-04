@@ -53,6 +53,10 @@ A wiki-style website has been generated using `mkdocs` to provide a more interac
     ```
     This will create a `site/` directory containing all the static files.
 
+## Important Note on Local Changes and Synchronization
+
+All modifications and file operations performed by the agent are applied directly to the local project folder. To reflect these changes on your remote GitHub repository and subsequently on your GitHub Pages website, you *must* manually commit and push these changes using GitHub Desktop (or your preferred Git client). Remember to follow the specific instructions provided for publishing the MkDocs site, especially after major updates to content or configuration.
+
 ---
 
 **Note:** The detailed guides (originally `gemini.md` and `wiki.txt`) contain commands and instructions that should be executed with care. Always understand the implications of a command before running it.
