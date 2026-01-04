@@ -4,6 +4,8 @@ This guide provides step-by-step instructions to configure your Arch Linux XFCE4
 
 ---
 
+![macOS-like XFCE4 Desktop](img/2026-01-04_09-22.png)
+
 ## 1. Initial Setup
 
 ### Install Essential Tools
