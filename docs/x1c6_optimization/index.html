@@ -267,24 +267,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    X1 Carbon 6th Gen Optimization
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -301,69 +283,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tlp-configuration-for-longevity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TLP Configuration for Longevity
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware-specific-fixes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hardware-Specific Fixes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssd-maintenance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SSD Maintenance
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-fixes-optimizations-optional-but-recommended" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced Fixes &amp; Optimizations (Optional but Recommended)
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -443,58 +362,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tlp-configuration-for-longevity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TLP Configuration for Longevity
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hardware-specific-fixes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hardware-Specific Fixes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssd-maintenance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SSD Maintenance
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-fixes-optimizations-optional-but-recommended" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced Fixes &amp; Optimizations (Optional but Recommended)
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -513,84 +380,25 @@
 <h1 id="lenovo-thinkpad-x1-carbon-6th-gen-optimization-guide">Lenovo ThinkPad X1 Carbon 6th Gen Optimization Guide<a class="headerlink" href="#lenovo-thinkpad-x1-carbon-6th-gen-optimization-guide" title="Permanent link">&para;</a></h1>
 <p>This document outlines various optimizations and hardware-specific fixes for your Arch Linux installation on the Lenovo ThinkPad X1 Carbon 6th Gen, focusing on performance, battery life, and stability.</p>
 <hr />
-<h2 id="tlp-configuration-for-longevity">TLP Configuration for Longevity<a class="headerlink" href="#tlp-configuration-for-longevity" title="Permanent link">&para;</a></h2>
-<p>The following settings create a balanced AC profile and a power-saving battery profile.</p>
-<p>First, apply the main settings by editing <code>/etc/tlp.conf</code>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># /etc/tlp.conf</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># --- AC Profile (Balanced) ---</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nv">CPU_SCALING_GOVERNOR_ON_AC</span><span class="o">=</span>powersave
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">CPU_ENERGY_PERF_POLICY_ON_AC</span><span class="o">=</span>balance_performance
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">CPU_BOOST_ON_AC</span><span class="o">=</span><span class="m">1</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nv">PCIE_ASPM_ON_AC</span><span class="o">=</span>default
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># --- Battery Profile (Power Save / Longevity) ---</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nv">CPU_SCALING_GOVERNOR_ON_BAT</span><span class="o">=</span>powersave
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">CPU_ENERGY_PERF_POLICY_ON_BAT</span><span class="o">=</span>power
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nv">CPU_BOOST_ON_BAT</span><span class="o">=</span><span class="m">0</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nv">PCIE_ASPM_ON_BAT</span><span class="o">=</span>powersupersave
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nv">PLATFORM_PROFILE_ON_BAT</span><span class="o">=</span>low-power
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nv">WIFI_PWR_ON_BAT</span><span class="o">=</span>on
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nv">SOUND_POWER_SAVE_ON_BAT</span><span class="o">=</span><span class="m">1</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="nv">RUNTIME_PM_ON_BAT</span><span class="o">=</span>auto
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1"># --- General Settings ---</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="nv">USB_AUTOSUSPEND</span><span class="o">=</span><span class="m">0</span>
-</code></pre></div></p>
-<p>Next, to preserve battery health, set charge thresholds by creating a new file:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/tlp.d/99-battery-thresholds.conf
-</code></pre></div>
-Add the following content to the file:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># Start charging at 40%, stop at 80%
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>START_CHARGE_THRESH_BAT0=40
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>STOP_CHARGE_THRESH_BAT0=80
-</code></pre></div></p>
-<p>Finally, apply all TLP settings with:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>tlp<span class="w"> </span>start
-</code></pre></div></p>
-<hr />
-<h2 id="hardware-specific-fixes">Hardware-Specific Fixes<a class="headerlink" href="#hardware-specific-fixes" title="Permanent link">&para;</a></h2>
-<p>These are common <code>modprobe</code> tweaks for the X1C6.</p>
-<p><strong>WiFi Stability:</strong>
-Create <code>/etc/modprobe.d/iwlwifi.conf</code> and add:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>options iwlwifi 11n_disable=8
-</code></pre></div></p>
-<p><strong>Audio (Fix for low volume):</strong>
-Create <code>/etc/modprobe.d/alsa-base.conf</code> and add:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>options snd-hda-intel model=nofixup
-</code></pre></div></p>
-<hr />
-<h2 id="ssd-maintenance">SSD Maintenance<a class="headerlink" href="#ssd-maintenance" title="Permanent link">&para;</a></h2>
-<p>Enable periodic TRIM to keep the SSD performance optimal.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>fstrim.timer
-</code></pre></div></p>
-<hr />
-<h2 id="advanced-fixes-optimizations-optional-but-recommended">Advanced Fixes &amp; Optimizations (Optional but Recommended)<a class="headerlink" href="#advanced-fixes-optimizations-optional-but-recommended" title="Permanent link">&para;</a></h2>
-<p><strong>Enable Deep Sleep (S3):</strong>
-For better power savings during suspend.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Check available sleep states (should show [s2idle] and deep)</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>cat<span class="w"> </span>/sys/power/mem_sleep
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Add the kernel parameter to GRUB config</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/quiet/quiet mem_sleep_default=deep/&#39;</span><span class="w"> </span>/etc/default/grub
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>sudo<span class="w"> </span>grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub/grub.cfg
-</code></pre></div></p>
-<p><strong>Improve Bluetooth Stability:</strong>
-If Bluetooth is flaky after waking from suspend.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Add a kernel parameter to disable BT autosuspend</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/quiet/quiet btusb.enable_autosuspend=0/&#39;</span><span class="w"> </span>/etc/default/grub
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>sudo<span class="w"> </span>grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub/grub.cfg
-</code></pre></div></p>
-<hr />
 <h1 id="optimization-and-productivity-guide-lenovo-thinkpad-x1-carbon-gen-6-on-arch-linux">Optimization and Productivity Guide: Lenovo ThinkPad X1 Carbon (Gen 6) on Arch Linux<a class="headerlink" href="#optimization-and-productivity-guide-lenovo-thinkpad-x1-carbon-gen-6-on-arch-linux" title="Permanent link">&para;</a></h1>
 <p>This guide provides a checklist of tasks to optimize your system for performance, battery life, and productivity.</p>
 <h2 id="1-core-system-bios-configuration">1. Core System &amp; BIOS Configuration<a class="headerlink" href="#1-core-system-bios-configuration" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] <strong>Update BIOS Firmware:</strong> Use the <code>fwupd</code> utility to ensure your BIOS is up to date.</li>
+<li>[ ] <strong>Update BIOS Firmware:</strong> Use the <code>fwupd</code> utility to ensure your BIOS (and other firmware like Thunderbolt controller) is up to date.</li>
+<li><strong>BIOS Settings for Updates:</strong> In the BIOS setup menu under <code>Security -&gt; UEFI BIOS Update Option</code>, ensure both <code>Flash BIOS Updating by End-Users</code> and <code>Windows UEFI Firmware Update</code> are enabled.</li>
+<li><strong>Automatic Update:</strong><ul>
 <li><code>sudo fwupdmgr refresh</code></li>
 <li><code>sudo fwupdmgr get-updates</code></li>
+<li><code>sudo fwupdmgr update</code></li>
+</ul>
+</li>
 <li>
-<p><code>sudo fwupdmgr update</code></p>
+<p><strong>Manual Update (<code>.cab</code> file):</strong></p>
+<ul>
+<li>Download the latest <code>.cab</code> file from the <a href="https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-x-series-laptops/thinkpad-x1-carbon-6th-gen-type-20kh-20kg/downloads/driver-list">Lenovo support website</a>.</li>
+<li><code>sudo fwupdmgr install /path/to/your/downloaded.cab</code></li>
+<li>Restart the system to apply the update.</li>
+</ul>
 </li>
 <li>
 <p>[ ] <strong>Check BIOS Settings:</strong> Reboot and enter the BIOS to configure the following for better compatibility and power management.</p>
@@ -631,9 +439,17 @@ If Bluetooth is flaky after waking from suspend.
 <h2 id="3-performance-tuning">3. Performance Tuning<a class="headerlink" href="#3-performance-tuning" title="Permanent link">&para;</a></h2>
 <h3 id="cpu">CPU<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h3>
 <ul>
-<li>[ ] <strong>Install Thermal Daemon:</strong> Prevents premature CPU thermal throttling that can occur on this model.</li>
+<li>[ ] <strong>Install Thermal Daemon (<code>thermald</code> or <code>throttled</code>):</strong> Prevents premature CPU thermal throttling that can occur on this model.</li>
+<li>Choose one:<ul>
+<li><strong><code>thermald</code> (Recommended for general use):</strong></li>
 <li><code>sudo pacman -S thermald</code></li>
 <li><code>sudo systemctl enable --now thermald.service</code></li>
+<li><strong><code>throttled</code> (Advanced, includes undervolting):</strong></li>
+<li>Install from AUR (e.g., using <code>paru</code>): <code>paru -S throttled</code></li>
+<li><code>sudo systemctl enable --now throttled.service</code></li>
+<li><em>Note: If using <code>throttled</code>, consider disabling <code>thermald</code> to avoid conflicts.</em></li>
+</ul>
+</li>
 </ul>
 <h3 id="ssd">SSD<a class="headerlink" href="#ssd" title="Permanent link">&para;</a></h3>
 <ul>
@@ -676,6 +492,31 @@ If Bluetooth is flaky after waking from suspend.
 <p><em>Note: This may disable the mute button LED.</em></p>
 </li>
 <li>
+<p>[ ] <strong>Fix Microphone Distortion:</strong> If your microphone volume increases automatically and distorts the sound, disable mic boost.</p>
+</li>
+<li>Open <code>pavucontrol</code> (PulseAudio Volume Control) and navigate to the "Input Devices" tab.</li>
+<li>
+<p>Unlock the channels and reduce the "Microphone Boost" level to 0dB, or adjust to a suitable level.</p>
+</li>
+<li>
+<p>[ ] <strong>Suspend Fails with USB-C Devices:</strong> If the system immediately resumes from suspend when devices are plugged into USB-C, it might be due to USB devices waking the computer.</p>
+</li>
+<li>Check if <code>grep XHC /proc/acpi/wakeup</code> shows <code>enabled</code>.</li>
+<li>If so, disable XHC wakeup: <code>echo XHC &gt; /proc/bus/usb/drivers/usb/unbind</code> (or <code>/proc/acpi/wakeup</code>)</li>
+<li>To make this permanent, create a systemd service:
+    <code>/etc/systemd/system/disable-xhc-wakeup.service</code>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Description=Disable XHC wakeup to fix suspend issues
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>[Service]
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ExecStart=/bin/bash -c &#39;grep --silent &quot;^XHC.*disabled&quot; /proc/acpi/wakeup || echo XHC &gt; /proc/acpi/wakeup&#39;
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Type=oneshot
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>RemainAfterExit=yes
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>[Install]
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>WantedBy=multi-user.target
+</code></pre></div></li>
+<li>
+<p>Enable and start the service: <code>sudo systemctl enable --now disable-xhc-wakeup.service</code></p>
+</li>
+<li>
 <p>[ ] <strong>Fix Slow WiFi:</strong> If your wireless speeds are poor, try this module option.</p>
 </li>
 <li>Create a file: <code>sudo nano /etc/modprobe.d/iwlwifi.conf</code></li>
@@ -683,10 +524,50 @@ If Bluetooth is flaky after waking from suspend.
 <p>Add the line: <code>options iwlwifi 11n_disable=8</code></p>
 </li>
 <li>
-<p>[ ] <strong>(Optional) Disable ThinkPad Lid LED:</strong> Save a tiny amount of power by turning off the blinking red light.</p>
+<p>[ ] <strong>TrackPoint and Touchpad Issues:</strong> Address issues with simultaneous operation and dead trackpads.</p>
 </li>
-<li>Add <code>ec_sys.write_support=1</code> to your kernel parameters (in <code>/etc/default/grub</code>).</li>
-<li>Create a systemd service to run the command to turn it off at boot.</li>
+<li><strong>Simultaneous Operation:</strong> To get the TrackPoint and Touchpad to work at the same time, add <code>synaptics_intertouch=1</code> to the <code>psmouse</code> kernel module options.<ul>
+<li>Create a file: <code>/etc/modprobe.d/psmouse.conf</code></li>
+<li>Add the line: <code>options psmouse synaptics_intertouch=1</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Reconnecting Dead Trackpad:</strong> If the trackpad stops responding after suspend, use these commands:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">printf</span><span class="w"> </span>none<span class="w"> </span>&gt;<span class="w"> </span>/sys/bus/serio/devices/serio1/drvctl
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">printf</span><span class="w"> </span>reconnect<span class="w"> </span>&gt;<span class="w"> </span>/sys/bus/serio/devices/serio1/drvctl
+</code></pre></div></p>
+</li>
+<li>
+<p>[ ] <strong>Fingerprint Reader:</strong> Enable the integrated fingerprint reader.</p>
+</li>
+<li>Install <code>fprintd</code> and <code>python-validity</code> (from AUR).<ul>
+<li><code>sudo pacman -S fprintd</code></li>
+<li><code>paru -S python-validity</code> (assuming <code>paru</code> AUR helper is installed)</li>
+</ul>
+</li>
+<li>
+<p>Configure <code>fprintd</code> to enroll fingerprints.</p>
+<ul>
+<li><code>fprintd-enroll</code></li>
+</ul>
+</li>
+<li>
+<p>[ ] <strong>(Optional) Disable ThinkPad Lid LED:</strong> Save a tiny amount of power by turning off the blinking red light in the ThinkPad logo on the cover.</p>
+</li>
+<li><strong>Enable EC Write Support:</strong> Add the kernel parameter <code>ec_sys.write_support=1</code> to your GRUB configuration (<code>/etc/default/grub</code>).<ul>
+<li>Example: <code>GRUB_CMDLINE_LINUX_DEFAULT="... quiet ec_sys.write_support=1"</code></li>
+<li>Run <code>sudo grub-mkconfig -o /boot/grub/grub.cfg</code> afterwards.</li>
+</ul>
+</li>
+<li><strong>Create Systemd Service:</strong> Create a service to turn off the LED at boot.
+    <code>/etc/systemd/system/disable-lid-led.service</code>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Description=Disabling ThinkPad Lid LED
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>[Service]
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>ExecStart=/bin/bash -c &quot;printf &#39;\\x0a&#39; | dd of=/sys/kernel/debug/ec/ec0/io bs=1 seek=12 count=1 conv=notrunc 2&gt; /dev/null&quot;
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>[Install]
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>WantedBy=multi-user.target
+</code></pre></div></li>
+<li>Enable and start the service: <code>sudo systemctl enable --now disable-lid-led.service</code></li>
 </ul>
 <h2 id="5-productivity-enhancements">5. Productivity Enhancements<a class="headerlink" href="#5-productivity-enhancements" title="Permanent link">&para;</a></h2>
 <ul>
@@ -715,6 +596,85 @@ If Bluetooth is flaky after waking from suspend.
 <p>[ ] <strong>Remove Orphaned Packages:</strong> Uninstall dependencies that are no longer required by any package.</p>
 </li>
 <li><code>sudo pacman -Rns $(pacman -Qtdq)</code></li>
+</ul>
+<h2 id="7-hardware-warnings">7. Hardware Warnings<a class="headerlink" href="#7-hardware-warnings" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[ ] <strong>NVMe Disk Failure:</strong> There is a known issue with the NVMe disk installed in some ThinkPad X1 Carbon (Gen 6) models that can result in device failure. It is recommended to check for and apply firmware updates or contact Lenovo support for a replacement if you experience issues.</li>
+</ul>
+<h2 id="8-thunderbolt-dock-configuration">8. Thunderbolt Dock Configuration<a class="headerlink" href="#8-thunderbolt-dock-configuration" title="Permanent link">&para;</a></h2>
+<p>For users with Thunderbolt docks, specific configurations might be needed to ensure stability and proper functionality.</p>
+<h3 id="plugable-usb-c-mini-docking-station-with-85w-power-delivery-ud-cam">Plugable USB-C Mini Docking Station with 85W Power Delivery (UD-CAM)<a class="headerlink" href="#plugable-usb-c-mini-docking-station-with-85w-power-delivery-ud-cam" title="Permanent link">&para;</a></h3>
+<p>If you experience random disconnections (external monitor, Bluetooth, Ethernet), check the following:</p>
+<ul>
+<li><strong>BIOS Settings:</strong></li>
+<li><code>Wake by Thunderbolt</code>: <code>Enabled</code></li>
+<li><code>Security Level</code>: <code>No Security</code></li>
+<li>
+<p><code>Pre-boot ACL option</code>: <code>Enabled</code></p>
+</li>
+<li>
+<p><strong>TLP Blacklisting from USB autosuspend:</strong></p>
+</li>
+<li>Edit <code>/etc/tlp.conf</code> and exclude dock devices from USB autosuspend. You'll need to find the correct Vendor:Product IDs for your dock (e.g., <code>lsusb</code>).</li>
+<li>Example: <code>USB_DENYLIST=="0000:1111 2222:3333 4444:5555"</code></li>
+</ul>
+<h3 id="lenovo-dock">Lenovo Dock<a class="headerlink" href="#lenovo-dock" title="Permanent link">&para;</a></h3>
+<p>Some problems can be caused by outdated dock firmware. Updates are typically not supplied by LVFS; use "Firmware for Windows" from the dock support page.</p>
+<h2 id="3-graphics-stack">3) Graphics Stack<a class="headerlink" href="#3-graphics-stack" title="Permanent link">&para;</a></h2>
+<p>Intel graphics on X1 Carbon Gen6 prefer modesetting:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>--needed<span class="w"> </span>mesa<span class="w"> </span>vulkan-intel
+</code></pre></div>
+<p>Optional (can help with older apps but not required):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>xf86-video-intel
+</code></pre></div>
+<p>Ensure Xorg basics:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>--needed<span class="w"> </span>xorg-server<span class="w"> </span>xf86-input-libinput
+</code></pre></div>
+<hr />
+<h3 id="enable-laptop-specific-kernel-modules">Enable Laptop-Specific Kernel Modules<a class="headerlink" href="#enable-laptop-specific-kernel-modules" title="Permanent link">&para;</a></h3>
+<h4 id="thinkpad-acpi-support">ThinkPad ACPI support:<a class="headerlink" href="#thinkpad-acpi-support" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>acpi<span class="w"> </span>acpi_call
+</code></pre></div>
+<p>Load ThinkPad module:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>modprobe<span class="w"> </span>thinkpad_acpi
+</code></pre></div></p>
+<p>Confirm:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ls<span class="w"> </span>/proc/acpi/ibm
+</code></pre></div></p>
+<hr />
+<h3 id="improve-ssd-stability-lifespan">Improve SSD Stability &amp; Lifespan<a class="headerlink" href="#improve-ssd-stability-lifespan" title="Permanent link">&para;</a></h3>
+<h4 id="enable-periodic-trim">Enable periodic TRIM:<a class="headerlink" href="#enable-periodic-trim" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>fstrim.timer
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>fstrim.timer
+</code></pre></div>
+<p>Check:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>fstrim.timer
+</code></pre></div></p>
+<hr />
+<h3 id="basic-stability-check">Basic Stability Check<a class="headerlink" href="#basic-stability-check" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>journalctl<span class="w"> </span>-p<span class="w"> </span><span class="m">3</span><span class="w"> </span>-xb
+</code></pre></div>
+<h2 id="optional-trackpoint-touchpad-tuning">Optional TrackPoint / Touchpad Tuning<a class="headerlink" href="#optional-trackpoint-touchpad-tuning" title="Permanent link">&para;</a></h2>
+<p>Install:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>--needed<span class="w"> </span>xf86-input-synaptics
+</code></pre></div>
+<p>Then configure:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/X11/xorg.conf.d/90-trackpoint.conf
+</code></pre></div>
+<p>Example:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Section &quot;InputClass&quot;
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    Identifier &quot;TrackPoint&quot;
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    MatchProduct &quot;DualPoint Stick&quot;
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    Option &quot;AccelerationProfile&quot; &quot;2&quot;
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    Option &quot;AccelerationScheme&quot; &quot;predictable&quot;
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    Option &quot;Sensitivity&quot; &quot;200&quot;
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>EndSection
+</code></pre></div>
+(Shows only serious errors)</p>
+<hr />
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wiki.archlinux.org/title/Lenovo_ThinkPad_X1_Carbon_(Gen_6)">Lenovo ThinkPad X1 Carbon (Gen 6) - ArchWiki</a></li>
 </ul>
 
 
