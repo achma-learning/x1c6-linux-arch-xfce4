@@ -246,6 +246,16 @@ yay -S picom-ibhagwan-git
 
 *This involves going into `Terminal` -> `Preferences` and adjusting colors, fonts, transparency, and possibly using a zsh/bash theme with Powerline or similar for prompt customization.*
 
+## Window Management
+
+Here’s what will actually improve your daily experience:
+
+1️⃣ Enable macOS-style window dragging
+```bash
+xfconf-query -c xfwm4 -p /general/easy_click -s true
+```
+(Drag windows by clicking anywhere, not just titlebar)
+
 <h2> 13. Installing Nautilus File Manager </h2>
 
 ```bash
