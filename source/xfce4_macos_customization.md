@@ -256,6 +256,15 @@ xfconf-query -c xfwm4 -p /general/easy_click -s true
 ```
 (Drag windows by clicking anywhere, not just titlebar)
 
+Set shortcuts:
+
+*   Super + Left/Right → tile window
+*   Super + Up → maximize
+*   Super + Down → restore
+
+(Settings → Window Manager → Keyboard)
+
+
 <h2> 13. Installing Nautilus File Manager </h2>
 
 ```bash
